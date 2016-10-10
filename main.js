@@ -1,25 +1,25 @@
-'use strict';
-var sum = 0;
+'use strict'
+var sum = 0
 var numArray = []
 var opArr = []
 
-// potreboval bych vysvetlit to jak by to vypadalo,kdybych ty operatory mel rozdelit do ruznych modulu
 var operations = {
   '+': function(x, y) {
-    return x + y;
+    return x + y
   },
   '/': function(x, y) {
-    return x / y;
+    return x / y
   },
   '*': function(x, y) {
-    return x * y;
+    return x * y
   },
   '-': function(x, y) {
-    return x - y;
+    return x - y
   }
-};
+}
 
 var calcPlugin = {
+
   init: function() {
     this.cacheDom()
     this.addEventListeners()
@@ -35,7 +35,7 @@ var calcPlugin = {
     this.input = document.querySelector('input')
     this.operators = document.getElementById('operators')
     this.instructions = document.getElementById('instructions')
-    this.result = document.getElementById('result');
+    this.result = document.getElementById('result')
   },
 
   render: function() {
@@ -63,8 +63,8 @@ var calcPlugin = {
 
     result.innerHTML = 'N/A'
     while (instructions.hasChildNodes())
-      instructions.removeChild(instructions.lastChild);
-    this.btnCalculate.disabled = false;
+      instructions.removeChild(instructions.lastChild)
+    this.btnCalculate.disabled = false
   },
 
   addEventListeners: function() {
@@ -75,8 +75,12 @@ var calcPlugin = {
 
   clickBtnAdd: function(e) {
     e.preventDefault()
-    this.addStep()
-    this.render()
+    if (this.input.value === "") {
+      alert('Please enter a number')
+    } else {
+      this.addStep()
+      this.render()
+    }
   },
 
   clickBtnReset: function(e) {
@@ -91,7 +95,10 @@ var calcPlugin = {
 
       result.innerHTML = ''
       result.insertAdjacentHTML('beforeEnd', sum)
-      this.btnCalculate.disabled = true;
+      this.btnCalculate.disabled = true
+
+    } else {
+      alert('Please add apply to calclulate')
     }
   },
 
