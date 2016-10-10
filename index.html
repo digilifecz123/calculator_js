@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator problem</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.1/mocha.min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class=".col-md-6 .col-md-offset-3">
+        <div class="page-header">
+          <h1>Calculator</h1>
+        </div>
+        <form role="form" class="form-inline">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <select class="form-control input-lg" id="operators">
+
+                </select>
+                <input class="form-control input-lg" type="number" placeholder="enter a number" />
+                <button id="btnAdd" class="btn btn-default btn-lg">Add step</button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <ol id="instructions" class="jumbotron" style="margin-top: 2em;">
+
+              </ol>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <button id="btnCalculate" class="btn btn-primary btn-lg">Calculate</button>
+              <button id="btnReset" class="btn btn-danger btn-lg">Reset</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <h2>Result: <span id="result" class="result">N/A</span></h2>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="mocha" style="margin:0"></div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src='main.js'></script>
+
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.1.1/mocha.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+  <script>
+    mocha.setup('bdd')
+  </script>
+  <!-- test file-->
+  <script src="test/calculator_test.js"></script>
+  <script>
+    mocha.run();
+  </script>
+</body>
+
+</html>
